@@ -11,7 +11,12 @@ routes.post("/product", async (req, res) => {
     res.send({
         name: data.name,
         image: data.imageLocation,
-        description: data.description
+        description: data.description,
+        mainCate: { slugName: data.level_1.slugName },
+        parent: {
+            name: data.level_2.name,
+            slugName: data.level_2.slugName
+        }
     })
 })
 module.exports = routes
